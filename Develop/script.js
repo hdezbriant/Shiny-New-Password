@@ -100,6 +100,10 @@ var passwordText = document.querySelector("#password");
 function writePassword() {
   var password = generatePassword();
   // ⬇⬇⬇Overwrites whatever is in PW field with result of password function
+  if (password == undefined) {
+    return;
+  } else {
   passwordText.value = password;
   return;
+  }
 }

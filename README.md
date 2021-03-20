@@ -21,11 +21,11 @@ different combinations of functions and just... a lot!
 
 ## Usage
 Just click on the "Generate Password" button and answer the following prompts to create your password!
-Make sure to input a value within the range.
-![Password generator page](./assets/pwgenpage.png)
+Make sure to input a value within the range.  
+![Password generator page](/Assets/pwgenpage.png)
 
-Once you've answered all the prompts accordingly, you should see your shiny new password pop right up!
-![Page with a shiny new random password displayed](./assets/examplepw.png)
+Once you've answered all the prompts accordingly, you should see your shiny new password pop right up!  
+![Page with a shiny new random password displayed](/Assets/examplepw.png)
 
 # Credits
 ### As always, a very caffeinated thank you to everyone who stayed up with me while we worked!  

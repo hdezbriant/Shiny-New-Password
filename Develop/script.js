@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
 
 // ===================================================
 // Generate random characters based on user selections
@@ -11,9 +11,12 @@ function generatePassword() {
   var passwordLength = 
   window.prompt("How many characters should your password be?\n(Must be between 8 - 128 characters.)");
   
+  if (!passwordLength) {
+    return;
+  }
   
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-    window.alert("Please enter a valid number of characters.");
+    window.alert("Please enter a valid number of characters.");;
     return;
   }
   
@@ -75,31 +78,28 @@ function generatePassword() {
     // if (!includeCaps && !includeLower && !includeSpecials && !includeNumber) {
     //   window.alert("Please select at least one category of characters.");
     // }
-      
+
+    // ⬇⬇Array of random choices⬇⬇
+    var almostPassword = [];
     for (i = 0; i < passwordLength; i++) {
       var rndmChoice = bigRandom[Math.floor(Math.random() * bigRandom.length)];
+      almostPassword.push (rndmChoice);
     }
 
-    
-    // console.log(rndmChoice)
-    return;
+    // ⬇⬇String of random choices from array⬇⬇
+    var shinyPassword = almostPassword.join("");
+
+    // console.log(shinyPassword);
+    return shinyPassword;
   }
+  return;
 }
   
+var passwordText = document.querySelector("#password");
   // Write password to the #password input
-  // writePassword() {
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-  // passwordText.value = password;
-  // }
+function writePassword() {
+  var password = generatePassword();
   // ⬇⬇⬇Overwrites whatever is in PW field with result of password function
-
-
-  // ===============================
-  // Add random index to password
-  // if password < passwordLength at end
-  // keep getting random chars from combined possibleChars array
-  // ===============================
-  
-  
-  
+  passwordText.value = password;
+  return;
+}

@@ -2,18 +2,15 @@
 var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
-// Write password to the #password input
-// var password = generatePassword();
-
-function writePassword() {
-  var passwordText = document.querySelector("#password");
+// ===================================================
+// Generate random characters based on user selections
+// ===================================================
+function generatePassword() {
   var passwordLength = 
   window.prompt("How many characters should your password be?\n(Must be between 8 - 128 characters.)");
   
-  // ⬇⬇⬇Overwrites whatever is in PW field with result of password function
-  // passwordText.value = password;
   
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     window.alert("Please enter a valid number of characters.");
@@ -21,7 +18,7 @@ function writePassword() {
   }
   
   if (passwordLength >= 8 && passwordLength <= 128) {
-
+    
     // =================================
     // Start collecting info for randomizer function
     // =================================
@@ -35,11 +32,11 @@ function writePassword() {
     ["!", "@", "#", "$", "%", "&", "(", ")", "*", "+", ",", 
     "-", ".", "/", ":", ";", "<", "=", ">", "?", "^","|", "~"];
     var allNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-    //  ⬇ Home array for combined user choices
+    
+    //  ⬇ Home array for combined user choice categories
     var bigRandom = [];
-
-    var rndmChar = Math.floor(Math.random() * allCaps.length);
-    var rndmCap = allCaps[rndmChar];
+    
+    
     var includeCaps = window.confirm("Include capital letters?");
     var includeLower = window.confirm("Include lower case letters?");
     var includeNumber = window.confirm("Include numbers?");
@@ -64,24 +61,45 @@ function writePassword() {
     if (includeSpecials) {
       bigRandom = bigRandom.concat(allSpecial);
     }
-
+    
     if (includeNumber) {
       bigRandom = bigRandom.concat(allNums);
     }
-
-    console.log(bigRandom);
-    return
-        }
-      }
-      
-      
-      // ===============================
-      // Add random index to password
-      // if password < passwordLength at end
-      // keep getting random chars from combined possibleChars array
-      // ===============================
     
-
-    // Target Text field in HTML and output text inside
-    // document.getElementById("password").innerHTML = Date();
+    if (bigRandom == "") {
+      window.alert("Please select at least one category of characters.");
+      return;
+    }
     
+    // ⬇⬇⬇ Alternate conditional for blank array. ⬇⬇⬇
+    // if (!includeCaps && !includeLower && !includeSpecials && !includeNumber) {
+    //   window.alert("Please select at least one category of characters.");
+    // }
+      
+    for (i = 0; i < passwordLength; i++) {
+      var rndmChoice = bigRandom[Math.floor(Math.random() * bigRandom.length)];
+    }
+
+    
+    // console.log(rndmChoice)
+    return;
+  }
+}
+  
+  // Write password to the #password input
+  // writePassword() {
+  // var password = generatePassword();
+  // var passwordText = document.querySelector("#password");
+  // passwordText.value = password;
+  // }
+  // ⬇⬇⬇Overwrites whatever is in PW field with result of password function
+
+
+  // ===============================
+  // Add random index to password
+  // if password < passwordLength at end
+  // keep getting random chars from combined possibleChars array
+  // ===============================
+  
+  
+  
